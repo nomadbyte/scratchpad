@@ -14,7 +14,7 @@ pwd
 #tar xvf sources.tar.gz
 #if [ ! -d fredcpp-master ]
 #then
-#  echo "E|NOSOURCES - fredcpp source directory not found." >>&2
+#  echo "E|NOSOURCES - fredcpp source directory not found." >&2
 #  exit 1
 #fi
 #
@@ -22,11 +22,11 @@ pwd
 
 ## setup env
 
-[ -s api.key ] || echo "$FRED_API_KEY" > api.key
+if [ ! -s api.key ] ; then echo "$FRED_API_KEY" > api.key ; fi
 
 if [ ! -s api.key ]
 then
-  echo "E|NOAPIKEY - 'api.key' file is missing or empty." >>&2
+  echo "E|NOAPIKEY - 'api.key' file is missing or empty." >&2
   exit 1
 fi
 
@@ -38,7 +38,7 @@ CURL_CA_CERT=/etc/ssl/certs/ca-certificates.crt
 
 if [ ! -s cacert.pem ]
 then
-  echo "E|NOCACERTS - 'cacert.pem' file is missing or empty." >>&2
+  echo "E|NOCACERTS - 'cacert.pem' file is missing or empty." >&2
   exit 1
 fi
 

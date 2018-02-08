@@ -5,16 +5,13 @@ compiler:
 - g++
 os:
 - linux
-
 before_install:
 - echo $LANG
 - echo $LC_ALL
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
-
 script:
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh
-
 env:
   global:
   - LANG="en_US.UTF-8"
-
+  - secure: GsJ0C0uncv2EMtcuRwfXb31NRzDQUP2+CpLYl/4GHR2KD2Wt2UnHIik9BVeTztwtqgAYNwChnzhL2w1dKA/2imavsRHkuZ8LDcR9RP95d/eSr+tc4BvHgNstxw2F0pLAUNZBsdAZ9TC+bhTvpYg4zMT397g+YA4M6+QmujdvQ/0HFAxSMbUTJKkHrLT7fKUzO/FKzCHqR1E4coo7CBFJ6jxoQDqTz0wnrAV1zoYJ/K5I6Z9NbNUcJhlFBEwJuBSZbdPJG53ecYnTMsbI/sch26FWKry8Ph/AOd89VOdIbSGSveyzN1rjOi4zrhkv+4hUwU9fGq2a1cvfyLEED/sRuqESbd0/aFXcWo8xgHxHfNgcg3ZDkIPkuEB7T2hiYTkwC+O3+YPKfeZ88eujFcEDFrG9FD2WdI/NBkE0WRv6qenuT7+mG3r/FoVWd96amzbHr1xHtjTxGEXKEL8KrSfshuua85cwt6uhr4W0ZT7rRoblKllUPCyHitID0VhgME6yj3slNjrpm9CpcV/DpyFFRRusgjNPHHh7VfR+ZeXyGpX3swt/D750DsJmKav32hpXVTQ8xgmvC5fU40gd27Oy3nWj/I4BssdmnS5Zf4BRNoLlj4vq1zbdSQI3NVWXWpaq6R6pw88OZf/8nHuRRpXVIHPY3fuboRA0rmHNSEYUoLQ=

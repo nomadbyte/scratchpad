@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
 sudo apt-get update
-sudo apt-get install doxygen
+sudo apt-get install doxygen graphviz
 

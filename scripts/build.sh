@@ -51,7 +51,8 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
 ## build
 
 make clean all
-make test
+make test ARGS="-V -E acceptanceTests"
+#make test ARGS="-V -R acceptanceTests"
 
 #ctest -V
 

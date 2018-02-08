@@ -10,7 +10,7 @@ before_install:
 - echo $LC_ALL
 - if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 script:
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh; fi
 env:
   global:
   - LANG="en_US.UTF-8"

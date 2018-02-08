@@ -5,20 +5,20 @@ echo "TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR" ## $HOME/build/<user>/<repo>
 pwd
 
 ## get sources
-#mkdir sources
-#cd sources
-#
-#rm -f sources.tar.gz
-#
-#wget -O sources.tar.gz https://github.com/nomadbyte/fredcpp/archive/master.tar.gz
-#tar xvf sources.tar.gz
-#if [ ! -d fredcpp-master ]
-#then
-#  echo "E|NOSOURCES - fredcpp source directory not found." >&2
-#  exit 1
-#fi
-#
-#cd fredcpp-master
+mkdir sources
+cd sources
+
+rm -f sources.tar.gz
+
+wget -O sources.tar.gz https://github.com/nomadbyte/fredcpp/archive/master.tar.gz
+tar xvf sources.tar.gz
+if [ ! -d fredcpp-master ]
+then
+  echo "E|NOSOURCES - fredcpp source directory not found." >&2
+  exit 1
+fi
+
+cd fredcpp-master
 
 ## setup env
 
@@ -53,5 +53,5 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
 make clean all
 make test
 
-ctest -V
+#ctest -V
 

@@ -1,19 +1,20 @@
-language: java
-sudo: false
-script: scripts/build.sh
+language: cpp
+sudo: required
+dist: trusty
+compiler:
+- g++
+os:
+- linux
 
-cache:
-  directories:
-  - .autoconf
-  - '$HOME/.m2/repository'
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
 
-deploy:
-  provider: releases
-  api_key:
-    secure: "bQ8EyZeVniUn2YSLxzrz54A89n5t/kZMubxS8eo/n0Zvlnt69MqUvi3uub5rBEepypNF4Us3Sk5GrW5xeSiRRreeRKOD7PeqGq74QA2A1p+Ro0QTLYFrUVbGEfJAmXVhWPHxCPkGrBIW2NxRcCWF6i3QgSadMfrTKq8fPUMnUR+J3XOnMpYmP6Uq6SlL9FZ68ZN2/EhCowpzrTiRYssksbLR4x5N6/MynhEVng1rXYMUxHR0MsW5JRhu36RvVtTNFNKNJXVpTFVyWTpDsmmP3/Oh0HLAWYhkvuDocm3zLfB2RSYd9fBaZycxFayNYG9lVVt4xQO5HiXiKuOPAfpLvjLxOEs9JBi4A8uO5Iftl39HHrHLgZIiiPYEu3XmtXWAjNhNGnmD60PHyOddtfIEbvbxOlVPbOXFLpZgxuGjsytD16ZUWkPhIMs8QBcauQK2VcibCxJcUqkfug2uvFTkkeP9rUyHD5trBAvdbBiW24967qO3iV2pJ6KdbnAxj5Q4LIOQOTXLAEtQHxd/bhBuHCH0ekYpEPXPXCQF754S24PGUPL2LI7Eis5kiGdPfeAuMqkU6LtmFkBCwEDrsUlxxE47ELpLY1E2IahDKh2TO/9PBdiiBWy2Rqmj74bOUMLdGK5rl8FL2iKixZp/lEvY9CDroH8AXPwtBs7KAOYOzgE="
-  file: 'release.tar.gz'
-  skip_cleanup: true
-  on:
-    tags: true
+script:
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/build.sh
 
+env:
+  global:
+  - LANG="en_US.UTF-8"
 
